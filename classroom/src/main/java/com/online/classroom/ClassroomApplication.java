@@ -14,13 +14,13 @@ import java.util.Set;
 
 @SpringBootApplication
 //public class ClassroomApplication implements CommandLineRunner {
-public class ClassroomApplication{
-//	@Autowired
+public class ClassroomApplication {
+	//	@Autowired
 //	private UserService userService;
 	public static void main(String[] args) {
 		SpringApplication.run(ClassroomApplication.class, args);
 	}
-
+}
 //	@Override
 //	public void run(String... args) throws Exception {
 //		System.out.println("starting code");
@@ -44,4 +44,4 @@ public class ClassroomApplication{
 //		User  user1 = this.userService.createUser(user, userRoleSet);
 //		System.out.println(user1.getUserName());
 //	}
-}
+//}

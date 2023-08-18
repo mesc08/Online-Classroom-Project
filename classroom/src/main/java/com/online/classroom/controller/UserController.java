@@ -14,27 +14,14 @@ import java.util.Set;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/v1/user")
+@RequestMapping("/v1/classroom/user")
 @CrossOrigin("*")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/")
-    public ResponseEntity<Response> createUser(@RequestBody User user) throws Exception{
-        Set<UserRole> roles = new HashSet<>();
-        Role role = new Role();
-        role.setId(45L);
-        role.setRoleName("NORMAL");
-        UUID uuid = UUID.randomUUID();
-        UserRole userRole = new UserRole();
-        userRole.setUser(user);
-        userRole.setRole(role);
-        roles.add(userRole);
-        Response response = new Response(uuid.toString(), "Data Save Successfully", this.userService.createUser(user, roles));
-        return ResponseEntity.ok(response);
-    }
+
 
     @GetMapping("/{username}")
     public ResponseEntity<Response> getUserByUserName(@PathVariable String username){

@@ -1,18 +1,19 @@
 package com.online.classroom.payload;
 
 public class Response {
-    private String requestId;
-    private String message;
+    private String Requestid;
+    private String Message;
     private Object data;
 
-    public Response(String requestId, String message, Object data) {
-        this.requestId = requestId;
-        this.message = message;
+
+    public Response(String requestid, String message, Object data) {
+        Requestid = requestid;
+        Message = message;
         this.data = data;
     }
 
-    public Response(String requestId, String message) {
-        this.requestId = requestId;
-        this.message = message;
+    public Response(String requestid, String message) {
+        Requestid = requestid;
+        Message = message;
     }
 }
