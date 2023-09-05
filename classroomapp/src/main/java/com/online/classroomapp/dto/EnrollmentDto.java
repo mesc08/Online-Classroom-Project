@@ -10,10 +10,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignUpRequest {
-    String firstName;
-    String lastName;
-    String email;
-    String password;
-    String roles;
+public class EnrollmentDto {
+
+    private Long userId;
+
+    private Long courseId;
 }

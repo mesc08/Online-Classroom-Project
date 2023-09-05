@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +33,20 @@ public class UserService {
         newUser.setUpdatedAt(LocalDateTime.now());
         return userRepository.save(newUser);
     }
+
+    public List<User> getAllUsers(){
+        return this.userRepository.findAll();
+    }
+
+    public void deleteUser(String username){
+        User user = this.userRepository.findByEmail(username).orElse(null);
+        this.userRepository.deleteById(user.getId());
+    }
+
+    public User getUserById(Long id){
+        return this.userRepository.findById(id).orElse(null);
+    }
+
 
 
 }

@@ -6,6 +6,7 @@ import com.online.classroomapp.dto.SignUpRequest;
 import com.online.classroomapp.models.Role;
 import com.online.classroomapp.models.User;
 import com.online.classroomapp.repositories.UserRepository;
+import com.online.classroomapp.utils.Utils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,6 +22,7 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final Utils util;
 
     public JwtAuthenticationResponse signup(SignUpRequest request) {
         var user = User
@@ -29,7 +31,7 @@ public class AuthenticationService {
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.ROLE_STUDENT)
+                .role(util.RoleName(request.getRoles()))
                 .build();
 
         user = userService.save(user);
